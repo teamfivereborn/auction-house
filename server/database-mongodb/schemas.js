@@ -1,0 +1,42 @@
+const mongoose = require('mongoose');
+const db = require('./index.js');
+mongoose.Promise = global.Promise;
+const AutoIncrement = require('mongoose-sequence')(mongoose);
+
+const userSchema = new mongoose.Schema({
+  id:{type:Number},
+  userName: String,
+  password: String,
+  salt: String,
+ balance:{ type: Number, default: 0 }
+});
+userSchema.plugin(AutoIncrement, {id:'id_seq',inc_field: 'id'});
+const user = mongoose.model('user', userSchema);
+
+const eventSchema = new mongoose.Schema({
+  ownerid:Number,
+  title: String,
+  img: String,
+  startPrice: String,
+  StartDate:String,
+  status:{ type: String, default: 'waiting' },
+  winnerid:{ type: Number, default: 0 },
+  endDate:String,
+
+});
+
+
+const event = mongoose.model('event', eventSchema);
+
+const participantSchema = new mongoose.Schema({
+  userId: String,
+  eventId: String,
+  password:String
+});
+const participant = mongoose.model('participant', participantSchema);
+
+module.exports ={
+  user,
+  event,
+  participant
+} 
