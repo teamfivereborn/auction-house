@@ -14,7 +14,7 @@ import { MoneyChangeComponent } from './money-change/money-change.component';
 import { TheAuctionRoomComponent } from './the-auction-room/the-auction-room.component';
 import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { SocketioService } from './socketio.service';
+import { BiddingService } from './bidding.service';
 
 
 @NgModule({
@@ -39,7 +39,7 @@ import { SocketioService } from './socketio.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [SocketioService],
+  providers: [BiddingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

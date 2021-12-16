@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SocketioService } from '../socketio.service';
+import { BiddingService } from '../bidding.service';
 
 @Component({
   selector: 'app-the-auction-room',
@@ -7,15 +7,21 @@ import { SocketioService } from '../socketio.service';
   styleUrls: ['./the-auction-room.component.css']
 })
 export class TheAuctionRoomComponent implements OnInit {
-  bet:Number=0
+  newMessage: String=""
+  messageList: String[] = [];
 
-  constructor(private socketService: SocketioService) { }
+  constructor(private biddingService: BiddingService){
 
-  ngOnInit() {
-    this.socketService.setupSocketConnection();
-  }
-  ngOnDestroy() {
-    this.socketService.disconnect();
   }
 
+  ngOnInit(){
+    this.biddingService.getNewMessage().subscribe((message: String) => {
+      this.messageList.push(message);
+    })
+  }
+
+  sendMessage() {
+    this.biddingService.sendMessage(this.newMessage);
+    this.newMessage = "";
+  }
 }

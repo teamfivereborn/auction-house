@@ -1,6 +1,8 @@
-<h2>bet room</h2>
-<div>
-  <label for="bet">Your bet:{{ bet }} </label>
-  <input id="bet" [(ngModel)]="bet" placeholder="name" />
-  <button>bet</button>
+<div *ngFor="let message of messageList">
+    <li>
+        {{message}}
+    </li>  
 </div>
+
+<input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" />
+<button (click)="sendMessage()">Send Message</button>
