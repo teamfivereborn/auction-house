@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -14,6 +14,7 @@ import { MoneyChangeComponent } from './money-change/money-change.component';
 import { TheAuctionRoomComponent } from './the-auction-room/the-auction-room.component';
 import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { SocketioService } from './socketio.service';
 
 
 @NgModule({
@@ -30,13 +31,15 @@ import { AboutUsComponent } from './about-us/about-us.component';
     TheAuctionRoomComponent,
     CreateEventsComponent,
     AboutUsComponent,
+
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [SocketioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
