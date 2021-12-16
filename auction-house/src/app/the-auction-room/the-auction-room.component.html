@@ -6,3 +6,7 @@
 
 <input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" />
 <button (click)="sendMessage()">Send Message</button>
+
+<h1>greatest bid:{{messageList[1]}}</h1>
+
+<h3 *ngIf="count">{{count}}</h3>

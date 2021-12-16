@@ -4,7 +4,7 @@ const {user}=require('./database-mongodb/schemas.js')
 const {event}=require('./database-mongodb/schemas.js')
 var port = process.env.PORT ||5000;
 var cors = require('cors');
-// const http = require('http').createServer();
+
 // var signupRouter=require('./routers/signup.js')
 // var loginRouter=require('./routers/login')
 
@@ -25,12 +25,26 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 io.on('connection', (socket) => {
+    var counter = 30;
+  var WinnerCountdown = setInterval(function(){
+    io.sockets.emit('counter', counter);
+    counter--
+    if (counter === 0) {
+      io.sockets.emit('counter', "Congratulations You WON!!");
+      clearInterval(WinnerCountdown);
+    }
+  }, 1000);
+
     console.log('a user connected');
+
+
     socket.on('disconnect', () => {
       console.log('user disconnected');
     });
+    
     socket.on('message', (msg) => {
         io.emit('message', `${socket.id.substr(0, 2)} said ${msg}`);
+        // event.findOneAndUpdate({},{})
       });
   });
 
