@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+// import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -14,7 +14,8 @@ import { MoneyChangeComponent } from './money-change/money-change.component';
 import { TheAuctionRoomComponent } from './the-auction-room/the-auction-room.component';
 import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { AboutUsComponent } from './about-us/about-us.component';
   
   ],
   imports: [
+    // CloudinaryUploader,
+    // CloudinaryOptions,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
