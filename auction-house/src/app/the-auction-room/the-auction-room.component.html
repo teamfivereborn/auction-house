@@ -5,8 +5,10 @@
 </div>
 
 <input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" />
-<button (click)="sendMessage()">Send Message</button>
+<button (click)="sendMessage()">Bid Now</button>
 
-<h1>greatest bid:{{messageList[messageList.length-1]}}</h1>
+<h1>greatest bid:{{messageList[messageList.length-1].slice()}}</h1>
 
-<!-- <h3 *ngIf="count">{{count}}</h3> -->
+<h3 *ngIf="counter">{{counter}}</h3>
+
+<!-- <countdown [config]="{leftTime:50000}"></countdown> -->

@@ -19,9 +19,8 @@ import { TheAuctionRoomComponent } from './the-auction-room/the-auction-room.com
 import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BiddingService } from './bidding.service';
-
-
 import { RegisterComponent } from './register/register.component';
+import {CountdownModule} from 'ngx-countdown'
 
 @NgModule({
   declarations: [
@@ -45,7 +44,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    
+    CountdownModule,
     HttpClientModule,
     FlashMessagesModule.forRoot(),
    

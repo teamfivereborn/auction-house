@@ -10,7 +10,7 @@ export class TheAuctionRoomComponent implements OnInit {
   newMessage: String=""
   messageList: String[] = [];
   currentBidValue:Number=0
-  // count:Number=0
+  counter:Number=1
   
   
 
@@ -21,12 +21,12 @@ export class TheAuctionRoomComponent implements OnInit {
   ngOnInit(){
     this.biddingService.getNewMessage().subscribe((message: String) => {
       this.messageList.push(message);
-      console.log(this.messageList);
+      // console.log(this.messageList);
     })
-    // this.biddingService.getCount().subscribe((count:Number) => {
-    //   console.log(count);
+    this.biddingService.getCounter().subscribe((counter:Number) => {
+      console.log(counter);
       
-    //   this.count=count})
+      this.counter=counter})
   }
 
   sendMessage() {
