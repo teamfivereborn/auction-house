@@ -12,7 +12,7 @@ import { io } from "socket.io-client";
 export class BiddingService {
 
   public message$: BehaviorSubject<string> = new BehaviorSubject('');
-  public count: BehaviorSubject<number> = new BehaviorSubject(0);
+  // public count: BehaviorSubject<number> = new BehaviorSubject(0);
   constructor() {}
 
   socket = io('http://localhost:5000');
@@ -31,11 +31,11 @@ export class BiddingService {
 
  
     
-    public getCount = () => {
-      this.socket.on('count', (count) =>{
-        this.count.next(count);
-      }) 
-      return this.count.asObservable();
-    }
+    // public getCount = () => {
+    //   this.socket.on('count', (count) =>{
+    //     this.count.next(count);
+    //   }) 
+    //   return this.count.asObservable();
+    // }
 
 }

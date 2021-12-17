@@ -20,6 +20,7 @@ import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BiddingService } from './bidding.service';
 
+
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -47,6 +48,7 @@ import { RegisterComponent } from './register/register.component';
     
     HttpClientModule,
     FlashMessagesModule.forRoot(),
+   
     
 
   ],

@@ -27,15 +27,15 @@ app.use(passport.session());
 const users = require("./routes/users");
 
 io.on('connection', (socket) => {
-    var counter = 30;
-  var WinnerCountdown = setInterval(function(){
-    io.sockets.emit('counter', counter);
-    counter--
-    if (counter === 0) {
-      io.sockets.emit('counter', "Congratulations You WON!!");
-      clearInterval(WinnerCountdown);
-    }
-  }, 1000);
+  //   var counter = 30;
+  // var WinnerCountdown = setInterval(function(){
+  //   io.sockets.emit('counter', counter);
+  //   counter--
+  //   if (counter === 0) {
+  //     io.sockets.emit('counter', "Congratulations You WON!!");
+  //     clearInterval(WinnerCountdown);
+  //   }
+  // }, 1000);
 
     console.log('a user connected');
 
@@ -50,30 +50,7 @@ io.on('connection', (socket) => {
       });
   });
 
-// app.post('/api/signup',(req,res)=>{
-//     console.log(req.body);
-//    event.create(req.body).then((data)=>{
-//        console.log(data);
-//            res.send(data)
-//        }).catch((err)=>{
-//            console.log(err);
-//        })  
-// })
 
-// app.get('/api/get',(req,res)=>{
-//   event.find({}).then(data=>{
-//       res.send(data)
-//   }).catch(err=>console.log(err))
-// })
-
-// app.use('/api/signup', signupRouter);
-// app.use('/api/login', loginRouter);
-
-
-
-// app.get("/hello",(req,res)=>{
-//     res.send("hello from express")         
-// })
 
 
 
@@ -83,8 +60,6 @@ app.get("/", (req, res)=>{
     res.send("Invalid endpoint!");
 });
 
-// app.get("*", (req, res)=>{
-//     res.sendFile(path.join(__dirname, "public/index.html"));
-// });
+
 
 
