@@ -107,6 +107,9 @@ dist
 .DS_Store
 bower_components
 node_modules
-package-lock.json
+./auction-house/package-lock.json
+./server/package-lock.json
+
 package-lock
+
 *node_modules/*

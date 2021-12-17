@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { FlashMessagesModule } from 'flash-messages-angular';
 import { AuthService } from './_services/auth.service';
@@ -18,6 +18,9 @@ import { MoneyChangeComponent } from './money-change/money-change.component';
 import { TheAuctionRoomComponent } from './the-auction-room/the-auction-room.component';
 import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { BiddingService } from './bidding.service';
+
+
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -34,18 +37,27 @@ import { RegisterComponent } from './register/register.component';
     CreateEventsComponent,
     AboutUsComponent,
     RegisterComponent,
+
+  
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
-    AppRoutingModule, 
-      FormsModule,
-      HttpClientModule,
-      FlashMessagesModule.forRoot(),
+    AppRoutingModule,
+    
+    HttpClientModule,
+    FlashMessagesModule.forRoot(),
+   
+    
+
   ],
+ 
   providers: [
   AuthService,
   AuthGuardService,
-  UserService
+  UserService,
+  BiddingService
 ],
   bootstrap: [AppComponent]
 })
