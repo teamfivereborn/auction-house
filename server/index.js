@@ -1,12 +1,11 @@
 var express = require("express");
 var app = express();
-const {user}=require('./database-mongodb/schemas.js')
-const {event}=require('./database-mongodb/schemas.js')
+const passport = require ("passport");
 var port = process.env.PORT ||5000;
 var cors = require('cors');
 
-// var signupRouter=require('./routers/signup.js')
-// var loginRouter=require('./routers/login')
+require("./config/passport")(passport);
+
 
 
 var server = app.listen(port, ()=>{
@@ -23,6 +22,9 @@ const io = require("socket.io")(server, {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(passport.initialize());
+app.use(passport.session());
+const users = require("./routes/users");
 
 io.on('connection', (socket) => {
     var counter = 30;
@@ -75,5 +77,14 @@ io.on('connection', (socket) => {
 
 
 
+app.use("/users", users);
+
+app.get("/", (req, res)=>{
+    res.send("Invalid endpoint!");
+});
+
+// app.get("*", (req, res)=>{
+//     res.sendFile(path.join(__dirname, "public/index.html"));
+// });
 
 

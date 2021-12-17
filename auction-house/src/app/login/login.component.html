@@ -1,44 +1,24 @@
-<div class="container">
+<div class="container p-3 my-3">
     <div class="row">
-        <div class="col-md-5 mx-auto">
-            <div id="first">
-                <div class="myform form">
-                    <div class="logo mb-3">
-                        <div class="col-md-12 text-center">
-                            <h1>Login</h1>
-                        </div>
-                    </div>
-                    <form action="" method="post" name="login">
-                        <div class="form-group">
-                            <label >Email address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Enter email" />
-                        </div>
-                        <div class="form-group">
-                            <label >Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Enter Password" />
-                        </div>
-                        <div class="form-group">
-                            <p class="text-center">By login up you accept our Terms Of Use</p>
-                        </div>
-                        <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">
-                                Login
-                            </button>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="login-or">
-                                <hr class="hr-or" />
-                            </div>
-                        </div>
-                        <div class="col-md-12 mb-3"></div>
-                        <div class="form-group">
-                            <p class="text-center">
-                                Don't have account? <a href="signup">Sign up here</a>
-                            </p>
-                        </div>
-                    </form>
+        <div class="col">
+            <h2>Login</h2>
+            <form (ngSubmit)="onLoginSubmit()" #loginForm="ngForm">
+                <div class="form-group">
+                  <label for="username">Username:</label>
+                  <input type="text" class="form-control" placeholder="Enter your username" id="username" required [(ngModel)]="loginData.username" name="username" #lusername="ngModel">
+                  <div *ngIf="lusername.invalid && (lusername.dirty || lusername.touched)" class="alert alert-danger">
+                    <!-- <div *ngIf="lusername.errors.required">Username is required.</div> -->
+                  </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" placeholder="Enter your password" id="password" required [(ngModel)]="loginData.password" name="password" #lpassword="ngModel">
+                    <div *ngIf="lpassword.invalid && (lpassword.dirty || lpassword.touched)" class="alert alert-danger">
+                        <!-- <div *ngIf="lpassword.errors.required">Password is required.</div> -->
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+              </form>
         </div>
     </div>
 </div>

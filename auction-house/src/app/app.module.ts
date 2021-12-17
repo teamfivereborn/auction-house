@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
+import { FlashMessagesModule } from 'flash-messages-angular';
+import { AuthService } from './_services/auth.service';
+import { AuthGuardService } from './_services/auth-guard.service';
+import { UserService } from './_services/user.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
@@ -16,11 +20,11 @@ import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BiddingService } from './bidding.service';
 
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent,
     LoginComponent,
     HomeComponent,
     UserHomeComponent,
@@ -31,15 +35,44 @@ import { BiddingService } from './bidding.service';
     TheAuctionRoomComponent,
     CreateEventsComponent,
     AboutUsComponent,
+    RegisterComponent,
 
   
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    
+    HttpClientModule,
+    FlashMessagesModule.forRoot(),
+    
+
   ],
-  providers: [BiddingService],
+ 
+  providers: [
+  AuthService,
+  AuthGuardService,
+  UserService,
+  BiddingService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
