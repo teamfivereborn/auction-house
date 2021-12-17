@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost/auction';
-const mongodb_URI='mongodb+srv://root:root@auction-house.izmbz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(mongodb_URI, () => {
+const config= require('../config/database')
+mongoose.connect(config.database, () => {
   console.log("db connected");
 });
 const db = mongoose.connection;
