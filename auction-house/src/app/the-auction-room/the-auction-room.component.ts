@@ -11,6 +11,7 @@ export class TheAuctionRoomComponent implements OnInit {
   messageList: String[] = [];
   currentBidValue:Number=0
   counter:Number=1
+ 
   
   
 
@@ -24,10 +25,11 @@ export class TheAuctionRoomComponent implements OnInit {
       // console.log(this.messageList);
     })
     this.biddingService.getCounter().subscribe((counter:Number) => {
-      console.log(counter);
       
       this.counter=counter})
   }
+
+ 
 
   sendMessage() {
     this.biddingService.sendMessage(this.newMessage);

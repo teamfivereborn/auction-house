@@ -33,7 +33,7 @@ export class BiddingService {
     
     public getCounter = () => {
       this.socket.on('counter', (counter) =>{
-        console.log('counter font',counter);
+       
         this.counter$.next(counter);
         
       }) 
