@@ -1,11 +1,11 @@
 var express = require("express");
 var app = express();
 const passport = require ("passport");
-var port = process.env.PORT ||5000;
+var port = process.env.PORT ||7000;
 var cors = require('cors');
 
 require("./config/passport")(passport);
-
+const nodemailer = require ('nodemailer')
 
 
 var server = app.listen(port, ()=>{
@@ -25,6 +25,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(passport.initialize());
 app.use(passport.session());
 const users = require("./routes/users");
+const { response } = require("express");
 
 io.on('connection', (socket) => {
   //   var counter = 30;
@@ -50,13 +51,40 @@ io.on('connection', (socket) => {
       });
   });
 
+  app.post('/email', (req, res) =>{
+    var data = req.body;
+    console.log(data);
+
+    let smpTransport = nodemailer.createTransport({
+      service : 'Gmail',
+      port: 465,
+      auth :{
+        user: 'all.in.one.customer.services@gmail.com',
+        pass : 'Azerty123+'
+      }
+    });
+    let mailOption ={
+      from : 'all.in.one.customer.services@gmail.com',
+      to : data.email,
+      subject : 'welcome to auction house',
+      html: `<h3>thank you for enjoy us </h3>
+      <h3>you can concatc us phone : 50915806</h3>`
+    };
+    smpTransport.sendMail(mailOption,(err, response) =>{
+      if(err){
+        res.send('errorrrrr')
+      }else{
+        res.send('success')
+      }
+    })
+    smpTransport.close()
+  })
 
 
 
+  app.use("/users", users);
 
-app.use("/users", users);
-
-app.get("/", (req, res)=>{
+  app.get("/", (req, res)=>{
     res.send("Invalid endpoint!");
 });
 
