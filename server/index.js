@@ -26,17 +26,18 @@ const users = require("./routes/users");
 
 
 
+
+
 var counter = 15;
 WinnerCountdown = setInterval(function () {
-  io.emit("counter", counter);
-  counter--;
+io.emit("counter", counter);
+counter--;
 
-  if (counter === 0) {
-    io.emit("counter", "bid finished");
-    clearInterval(WinnerCountdown);
-  }
+if (counter === 0) {
+  io.emit("counter", "bid finished");
+  clearInterval(WinnerCountdown);
+}
 }, 1000);
-
 
 
 
@@ -44,12 +45,14 @@ WinnerCountdown = setInterval(function () {
 io.on("connection", (socket) => {
   console.log("a user connected");
 
+
   socket.on("message", function (data) {
     counter = 15;
     io.emit("counter", counter);
   });
 
   socket.on("message", (msg) => {
+
     io.emit(
       "message",
       `${socket.id.substr(0, 2)} bidded for the amount of ${msg} coin`
