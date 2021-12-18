@@ -27,7 +27,15 @@ app.use(passport.session());
 const users = require("./routes/users");
 
 
-
+// {
+//   user: {
+//     id: '61bcf628308cae61f633805f',
+//     name: 'amiramir',
+//     username: 'amiramir',
+//     email: 'amirlimgarbi33@gmail.com'
+//   },
+//   message: ''
+// }
 
 var counter = 15;
 
@@ -36,7 +44,8 @@ io.on("connection", (socket) => {
 
   
   socket.on("message", function (data) {
-    if(data==='start'){
+    
+    if(data.message==='start'){
       
       WinnerCountdown = setInterval(function () {
       io.emit("counter", counter);
@@ -55,11 +64,8 @@ io.on("connection", (socket) => {
 
   socket.on("message", (msg) => {
 
-    io.emit(
-      "message",
-      `${socket.id.substr(0, 2)} bidded for the amount of ${msg} coin`
-    );
-    // event.findOneAndUpdate({},{})
+    io.emit("message",msg);
+    
   });
 
   socket.on("disconnect", () => {
@@ -95,7 +101,7 @@ io.on("connection", (socket) => {
 
 app.post('/email', (req, res) =>{
   var data = req.body;
-  console.log(data);
+  
 
   let smpTransport = nodemailer.createTransport({
     service : 'Gmail',

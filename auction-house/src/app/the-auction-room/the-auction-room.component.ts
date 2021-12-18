@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BiddingService } from '../bidding.service';
+import { Load } from '../interface';
 
 @Component({
   selector: 'app-the-auction-room',
@@ -8,9 +9,10 @@ import { BiddingService } from '../bidding.service';
 })
 export class TheAuctionRoomComponent implements OnInit {
   newMessage: String=""
-  messageList: String[] = [];
+  loadList: Load[] = [];
   currentBidValue:Number=0
   counter:Number=1
+  
  
   
   
@@ -20,9 +22,14 @@ export class TheAuctionRoomComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.biddingService.getNewMessage().subscribe((message: String) => {
-      this.messageList.push(message);
-      // console.log(this.messageList);
+    
+    this.biddingService.getNewMessage().subscribe((load) => {
+      
+      
+if(load){
+      this.loadList.push(load);
+      console.log(this.loadList);
+}
     })
     this.biddingService.getCounter().subscribe((counter:Number) => {
       
@@ -32,7 +39,14 @@ export class TheAuctionRoomComponent implements OnInit {
  
 
   sendMessage() {
-    this.biddingService.sendMessage(this.newMessage);
+    var x =JSON.parse(localStorage.getItem('user')||'{}')
+ 
+  
+  var obj={user:x,message:this.newMessage}
+  
+  
+    
+    this.biddingService.sendMessage(obj);
     this.newMessage = "";
   }
 }

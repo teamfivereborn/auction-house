@@ -11,13 +11,13 @@ import { io } from "socket.io-client";
 })
 export class BiddingService {
 
-  public message$: BehaviorSubject<string> = new BehaviorSubject('');
+  public message$: BehaviorSubject<any> = new BehaviorSubject(0);
   public counter$: BehaviorSubject<number> = new BehaviorSubject(0);
   constructor() {}
 
   socket = io('http://localhost:5000');
 
-  public sendMessage(message:String) {
+  public sendMessage(message:Object) {
     this.socket.emit('message', message);
   }
 
