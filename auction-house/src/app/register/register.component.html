@@ -1,5 +1,5 @@
 <div><app-navbar></app-navbar></div>
- <div class="container p-3 my-3"> 
+ <!-- <div class="container p-3 my-3"> 
     <div class="row">
         <div class="col">
             <h2>Register</h2>
@@ -8,35 +8,31 @@
                   <label for="name">Name:</label>
                   <input type="text" class="form-control" placeholder="Enter your name" id="name" required minlength="8" [(ngModel)]="model.name" name="name" #name="ngModel">
                   <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-                    <!-- <div *ngIf="name.errors['required']">Name is required.</div> -->
-                    <!-- <div *ngIf="name.errors.minlength">Name must be at least 8 characters long.</div> -->
+              
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="username">Username:</label>
                   <input type="text" class="form-control" placeholder="Enter your username" id="username" required minlength="8" [(ngModel)]="model.username" name="username" #username="ngModel">
                   <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
-                    <!-- <div *ngIf="username.errors.required">Username is required.</div> -->
-                    <!-- <div *ngIf="username.errors.minlength">Username must be at least 8 characters long.</div> -->
+                   
                   </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control" placeholder="Enter your email address" id="email" required email [(ngModel)]="model.email" name="email" #email="ngModel">
                     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                      <!-- <div *ngIf="email.errors.required">Email address is required.</div> -->
-                      <!-- <div *ngIf="email.errors.email">It is not a valid email address format.</div> -->
+                    
                     </div>
                   </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" placeholder="Enter your password" id="password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [(ngModel)]="model.password" name="password" #password="ngModel">
                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-                      <!-- <div *ngIf="password.errors.required">Password is required.</div>
-                      <div *ngIf="password.errors.pattern">Password shall contain an uppercase, a lowercase and one numerical or special characters. Length must be minimum 8 characters.</div> -->
+                    
                     </div>
                 </div>
-                <!-- <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid" >Submit</button> -->
+               
                 
 
               </form>
@@ -44,4 +40,39 @@
 
         </div>
     </div>
-</div> 
+</div>  -->
+
+
+<div class="container d-flex justify-content-center my-5">
+  <div class="row my-2 mx-2 main">
+      <!--left-column-->
+      <div class="col-md-4 col-12 mycol">
+          <!--image--> <img src="https://i.imgur.com/cEmbD0i.jpg" width="100%" height="100%"> </div>
+      <!--right-column-->
+      <div class="col-md-8 col-12 xcol">
+          <h2 class="title pt-5 pb-3">Sign up</h2>
+          <form class="myform" (ngSubmit)="onRegisterSubmit(); registerForm.reset();" #registerForm="ngForm" > //////////
+              <div class="row rone">
+                  <div class="form-group col-md-6 fone py-3"> 
+                    <input type="text" class="form-control" placeholder="First name"> 
+                  </div>
+                  <div class="form-group col-md-6 ftwo py-3"> <input type="text" class="form-control" placeholder="Last name"> </div>
+              </div>
+              <div class="row rtwo">
+                  <div class="form-group col-md-6 fthree py-3"> <input type="text" class="form-control jk" placeholder="Phone"> </div>
+                  <div class="form-group col-md-6 ffour py-3"> <input type="email" class="form-control lm" placeholder="knwst@gmail.com"> </div>
+              </div>
+              <div class="row rthree">
+                  <div class="form-group col-md-6 ffive py-3"> <input type="password" class="form-control" placeholder="Password"> </div>
+                  <div class="form-group col-md-6 fsix py-3"> <input type="password" class="form-control" placeholder="Confirm Password"> </div>
+              </div>
+              <div class="row rfour">
+                  <div class="form-group col-md-6 fseven py-3"> <button type="submit" class="btn btn-primary"><span>Create account</span></button> </div>
+                  <div class="form-group col-md-6 feight py-3">
+                      <p class="text-muted">Already have an account?<br><a href="#">Sign in</a></p>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
