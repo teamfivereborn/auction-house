@@ -11,13 +11,13 @@ import { io } from "socket.io-client";
 })
 export class BiddingService {
 
-  public message$: BehaviorSubject<string> = new BehaviorSubject('');
-  // public count: BehaviorSubject<number> = new BehaviorSubject(0);
+  public message$: BehaviorSubject<any> = new BehaviorSubject(0);
+  public counter$: BehaviorSubject<number> = new BehaviorSubject(0);
   constructor() {}
 
   socket = io('http://localhost:5000');
 
-  public sendMessage(message:String) {
+  public sendMessage(message:Object) {
     this.socket.emit('message', message);
   }
 
@@ -31,11 +31,13 @@ export class BiddingService {
 
  
     
-    // public getCount = () => {
-    //   this.socket.on('count', (count) =>{
-    //     this.count.next(count);
-    //   }) 
-    //   return this.count.asObservable();
-    // }
+    public getCounter = () => {
+      this.socket.on('counter', (counter) =>{
+       
+        this.counter$.next(counter);
+        
+      }) 
+      return this.counter$.asObservable();
+    }
 
 }
