@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import { BiddingService } from '../bidding.service';
+import { Load } from '../interface';
 
 // import { HttpClient } from '@angular/common/http';
 @Component({
@@ -11,6 +12,8 @@ import { BiddingService } from '../bidding.service';
 export class UserNavbarComponent implements OnInit {
   name:String=""
   data:any
+  profilName:string=""
+  
 
   constructor(
     private userService: UserService,
@@ -26,12 +29,8 @@ export class UserNavbarComponent implements OnInit {
 
 
   ngOnInit(): void {
-  }
-  sendMessage() {
-    
     this.userService.getProfile().subscribe((data) => {
-    console.log('hiiiiiiiiiiiiiiiiiii',data);
-    
+     this.profilName= data.user.username      
     })
-  }
+  } 
 }
