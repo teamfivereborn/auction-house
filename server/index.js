@@ -2,9 +2,15 @@ const {event,user} =require("../server/database-mongodb/schemas.js")
 
 var express = require("express");
 var app = express();
+<<<<<<< HEAD
 const passport = require("passport");
 var port = process.env.PORT || 5000;
 var cors = require("cors");
+=======
+const passport = require ("passport");
+var port = process.env.PORT ||5000;
+var cors = require('cors');
+>>>>>>> 4375ec83e0d7170ccafce8f33b6f489270f337e9
 
 require("./config/passport")(passport);
 const nodemailer = require ('nodemailer')
@@ -136,6 +142,7 @@ app.use("/users", users);
 app.get("/", (req, res) => {
   res.send("Invalid endpoint!");
 });
+<<<<<<< HEAD
 app.post('/create',(req,res)=>{
   console.log("oooooooooooooooo",req.body)
   
@@ -164,3 +171,5 @@ app.get('/balance',(req,res)=>{
     res.json(result)
   })
 })
+=======
+>>>>>>> 4375ec83e0d7170ccafce8f33b6f489270f337e9
