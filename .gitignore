@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+
+*.log
+.DS_Store
+bower_components
+node_modules
+./auction-house/package-lock.json
+./server/package-lock.json
+
+package-lock
+
+*node_modules/*

@@ -1,0 +1,43 @@
+
+<div class="mt-4 p-5 bg-primary text-white rounded">
+  <h1>Welcome In our Auction House</h1>
+  <h4>What Is an Auction House?</h4>
+  <br />
+  <p>
+    An auction house is a company that facilitates the buying and selling of
+    assets, such as works of art and collectibles. An auction house may
+    sometimes refer to the facility that an auction is taking place in, most
+    commonly refers to the company running the auction....
+  </p>
+</div>
+<div class="container">
+  <h2 class="mt-5 mb-4">By coints to enjoy in the events</h2>
+ 
+  <div class="container mt-5">
+    <h2>Stripe Checkout</h2>
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <button (click)="pay(1000)" (click)="money(1000)"  class="btn btn-primary btn-block">Pay 1000DT</button>
+      </div>
+      <div class="col-md-4">
+        <button (click)="pay(10000)" (click)="money(10000)" class="btn btn-success btn-block">Pay 10000DT</button>
+      </div>
+      <div class="col-md-4">
+        <button (click)="pay(100000)" (click)="money(100000)" class="btn btn-info btn-block">Pay 100000DT</button>
+      </div>    
+    </div>
+    
+  </div>
+  <div class="card" style="width: 500px">
+    <img class="card-img-top" src="../../assets/bechir.jpg" alt="Card image" />
+    <h4 class="card-title">Ghaoui Bechir</h4>
+    <p class="card-text">My Balance is : 1000DT</p>
+    <a href="homeEvents" class="btn btn-primary">Let Join to Events</a>
+  </div>
+</div>
+
+
+<div><app-user-navbar></app-user-navbar></div>
+<router-outlet></router-outlet>
+<img src="../../assets/exchanging curency.jpeg" alt="">
+
