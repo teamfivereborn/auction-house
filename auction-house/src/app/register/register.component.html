@@ -36,11 +36,11 @@
                       <div *ngIf="password.errors.pattern">Password shall contain an uppercase, a lowercase and one numerical or special characters. Length must be minimum 8 characters.</div> -->
                     </div>
                 </div>
-                <!-- <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid" >Submit</button> -->
+                <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid" (click)='forgot()' >Submit</button>
                 
 
               </form>
-              <button type="butoon" class="btn btn-primary" [disabled]="!registerForm.form.valid"  (click)='forgot()'>Submit</button>
+              <!-- <button type="butoon" (click)='forgot()' class="btn btn-primary" [disabled]="!registerForm.form.valid"  >Submit</button> -->
 
         </div>
     </div>
