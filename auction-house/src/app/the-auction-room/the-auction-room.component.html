@@ -1,14 +1,18 @@
 <div><app-user-navbar></app-user-navbar></div>
 <router-outlet></router-outlet>
-<div *ngFor="let message of messageList">
+<div *ngFor="let load of loadList">
     <li>
-        {{message}}
+        {{load.user.user.username}} bids for {{load.message}} coin
     </li>  
 </div>
 
 <input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" />
-<button (click)="sendMessage()">Send Message</button>
+<button (click)="sendMessage()" >Bid Now</button>
 
-<h1>greatest bid:{{messageList[messageList.length-1]}}</h1>
+<h1 *ngIf="loadList[0]">greatest bid:{{loadList[loadList.length-1].message}}</h1>
 
-<!-- <h3 *ngIf="count">{{count}}</h3> -->
+<h3 *ngIf="counter">{{counter}}</h3>
+
+<h1 *ngIf="winner">the winner is {{winner}} congratulation</h1>
+
+<!-- <countdown [config]="{leftTime:50000}"></countdown> -->
