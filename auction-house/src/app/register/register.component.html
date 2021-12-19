@@ -1,5 +1,6 @@
 <div><app-navbar></app-navbar></div>
- <!-- <div class="container p-3 my-3"> 
+ <div class="container d-flex justify-content-center my-5">
+ <div class="container p-3 my-3"> 
     <div class="row">
         <div class="col">
             <h2>Register</h2>
@@ -31,48 +32,18 @@
                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
                     
                     </div>
-                </div>
-               
-                
-
+                  </div>
+                  <div class="form-group col-md-6 fseven py-3"><button type="butoon" class="btn btn-primary" [disabled]="!registerForm.form.valid"  (click)='forgot()'>Submit</button> </div>
               </form>
-              <button type="butoon" class="btn btn-primary" [disabled]="!registerForm.form.valid"  (click)='forgot()'>Submit</button>
-
+              <div class="row rfour">
+                  
+                <div class="form-group col-md-6 feight py-3">
+                    <p class="text-muted">Already have an account?<br><a href="#">Sign in</a></p>
+                </div>
         </div>
     </div>
-</div>  -->
+</div> 
+</div> 
 
 
-<div class="container d-flex justify-content-center my-5">
-  <div class="row my-2 mx-2 main">
-      <!--left-column-->
-      <div class="col-md-4 col-12 mycol">
-          <!--image--> <img src="https://i.imgur.com/cEmbD0i.jpg" width="100%" height="100%"> </div>
-      <!--right-column-->
-      <div class="col-md-8 col-12 xcol">
-          <h2 class="title pt-5 pb-3">Sign up</h2>
-          <form class="myform" (ngSubmit)="onRegisterSubmit(); registerForm.reset();" #registerForm="ngForm" > //////////
-              <div class="row rone">
-                  <div class="form-group col-md-6 fone py-3"> 
-                    <input type="text" class="form-control" placeholder="First name"> 
-                  </div>
-                  <div class="form-group col-md-6 ftwo py-3"> <input type="text" class="form-control" placeholder="Last name"> </div>
-              </div>
-              <div class="row rtwo">
-                  <div class="form-group col-md-6 fthree py-3"> <input type="text" class="form-control jk" placeholder="Phone"> </div>
-                  <div class="form-group col-md-6 ffour py-3"> <input type="email" class="form-control lm" placeholder="knwst@gmail.com"> </div>
-              </div>
-              <div class="row rthree">
-                  <div class="form-group col-md-6 ffive py-3"> <input type="password" class="form-control" placeholder="Password"> </div>
-                  <div class="form-group col-md-6 fsix py-3"> <input type="password" class="form-control" placeholder="Confirm Password"> </div>
-              </div>
-              <div class="row rfour">
-                  <div class="form-group col-md-6 fseven py-3"> <button type="submit" class="btn btn-primary"><span>Create account</span></button> </div>
-                  <div class="form-group col-md-6 feight py-3">
-                      <p class="text-muted">Already have an account?<br><a href="#">Sign in</a></p>
-                  </div>
-              </div>
-          </form>
-      </div>
-  </div>
-</div>
+
