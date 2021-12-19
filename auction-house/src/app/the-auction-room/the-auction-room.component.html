@@ -2,7 +2,7 @@
 <router-outlet></router-outlet>
 <div *ngFor="let load of loadList">
     <li>
-        {{load.user.username}} bids for {{load.message}} coin
+        {{load.user.user.username}} bids for {{load.message}} coin
     </li>  
 </div>
 
@@ -12,5 +12,7 @@
 <h1 *ngIf="loadList[0]">greatest bid:{{loadList[loadList.length-1].message}}</h1>
 
 <h3 *ngIf="counter">{{counter}}</h3>
+
+<h1 *ngIf="winner">the winner is {{winner}}</h1>
 
 <!-- <countdown [config]="{leftTime:50000}"></countdown> -->
