@@ -1,8 +1,14 @@
-<h3>ka3ba choklata lel bii3</h3>
-<h3>ka3ba choklata lel bii3</h3>
-<h3>ka3ba choklata lel bii3</h3>
-<h3>ka3ba choklata lel bii3</h3>
-<h3>ka3ba choklata lel bii3</h3>
-<h3>ka3ba choklata lel bii3</h3>
-<h3>ka3ba choklata lel bii3</h3>
-<h3>ka3ba choklata lel bii3</h3>
+<ul *ngFor="let item of events" class="card" style="width: 500px">
+  <label>The Seller is :</label>
+  <h2 class="card-title">{{ item.ownerid }}</h2>
+  <label>The product is : </label>
+  <h3 class="card-title">{{ item.title }}</h3>
+  <img class="card-img-top" src="{{item.img}}" alt="Product image" />
+  <label >Descriptions :</label>
+  <h4>{{item.descriptions}}</h4>
+  <label>Event start on :</label>
+  <h3 class="card-text">{{ item.StartDate }}</h3>
+  <label>The start price :</label>
+  <h6 class="card-text">{{ item.startPrice }}DT</h6>
+  <h3><a class="btn btn-primary">Let Join to this Event</a></h3>
+</ul>
