@@ -3,6 +3,7 @@ import { User } from '../_classes/user';
 import { UserService } from '../_services/user.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'flash-messages-angular';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,14 +14,16 @@ import { FlashMessagesService } from 'flash-messages-angular';
 export class RegisterComponent implements OnInit {
   
   model = new User("", "", "", "");
+  email: any=""
 
   constructor(
     private userService: UserService,
     private router: Router,
-    private flashMessagesService: FlashMessagesService
+    private flashMessagesService: FlashMessagesService,
+    private http:HttpClient
   ) { }
 
-  onRegisterSubmit() {
+  onRegisterSubmit() {    
     this.userService
     .registerUser(this.model)
     .subscribe(res => {
@@ -33,6 +36,18 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/register']);
       }
     });
+  }
+  
+  forgot(): void{
+    
+    var url =' http://localhost:5000/email';
+    this.http.post(url,{
+      email : this.model.email
+    })
+    .subscribe( () =>{
+      console.log(('hiiiiiiii'));
+      
+    })
   }
 
   ngOnInit() { }
