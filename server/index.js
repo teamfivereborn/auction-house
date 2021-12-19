@@ -1,8 +1,10 @@
+const {event,user} =require("../server/database-mongodb/schemas.js")
+
 var express = require("express");
 var app = express();
-const passport = require ("passport");
-var port = process.env.PORT ||5000;
-var cors = require('cors');
+const passport = require("passport");
+var port = process.env.PORT || 5000;
+var cors = require("cors");
 
 require("./config/passport")(passport);
 const nodemailer = require ('nodemailer')
@@ -134,3 +136,31 @@ app.use("/users", users);
 app.get("/", (req, res) => {
   res.send("Invalid endpoint!");
 });
+app.post('/create',(req,res)=>{
+  console.log("oooooooooooooooo",req.body)
+  
+  event.create(req.body).then((result)=>{
+    res.json(result)
+  })
+  
+})
+app.get('/events',(req,res)=>{
+  event.find().then((result)=>{
+   
+    res.json(result)
+  })
+})
+app.post('/money',(req,res)=>{
+  console.log("hihihihihihihihihihihi",req.body)
+  event.create(req.body).then((result)=>{
+    res.json(result)
+  })
+ 
+})
+
+app.get('/balance',(req,res)=>{
+  event.findOne().then((result)=>{
+   
+    res.json(result)
+  })
+})
