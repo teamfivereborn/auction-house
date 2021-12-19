@@ -26,9 +26,11 @@ userSchema.plugin(AutoIncrement, {id:'id_seq',inc_field: 'id'});
 const user = mongoose.model('user', userSchema);
 
 const eventSchema = new mongoose.Schema({
-  ownerid:Number,
+  balance:String,
+  ownerid:String,
   title: String,
   img: String,
+  descriptions:String,
   startPrice: String,
   StartDate:String,
   status:{ type: String, default: 'waiting' },

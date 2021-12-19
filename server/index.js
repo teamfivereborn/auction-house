@@ -1,8 +1,10 @@
+const {event,user} =require("../server/database-mongodb/schemas.js")
+
 var express = require("express");
 var app = express();
-const passport = require ("passport");
-var port = process.env.PORT ||5000;
-var cors = require('cors');
+const passport = require("passport");
+var port = process.env.PORT || 5000;
+var cors = require("cors");
 
 require("./config/passport")(passport);
 const nodemailer = require ('nodemailer')
@@ -116,6 +118,7 @@ app.post('/email', (req, res) =>{
     to : data.email,
     subject : 'welcome to auction house',
     html: `<h3>thank you for enjoy us </h3>
+          <img scr = "https://www.logomyway.com/logos_new/3992/FULL_HOUSE_AUCTION_05_small.png" />
     <h3>you can concatc us phone : 50915806</h3>`
   };
   smpTransport.sendMail(mailOption,(err, response) =>{
@@ -134,3 +137,31 @@ app.use("/users", users);
 app.get("/", (req, res) => {
   res.send("Invalid endpoint!");
 });
+app.post('/create',(req,res)=>{
+  console.log("oooooooooooooooo",req.body)
+  
+  event.create(req.body).then((result)=>{
+    res.json(result)
+  })
+  
+})
+app.get('/events',(req,res)=>{
+  event.find().then((result)=>{
+   
+    res.json(result)
+  })
+})
+app.post('/money',(req,res)=>{
+  console.log("hihihihihihihihihihihi",req.body)
+  event.create(req.body).then((result)=>{
+    res.json(result)
+  })
+ 
+})
+
+app.get('/balance',(req,res)=>{
+  event.findOne().then((result)=>{
+   
+    res.json(result)
+  })
+})
