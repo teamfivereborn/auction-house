@@ -1,4 +1,4 @@
-const {event,user} =require("../server/database-mongodb/schemas.js")
+const {event,user} =require("./database-mongodb/schemas")
 
 var express = require("express");
 var app = express();
@@ -10,7 +10,7 @@ require("./config/passport")(passport);
 const nodemailer = require ('nodemailer')
 
 
-var server = app.listen(process.env.PORT||port, ()=>{
+var server = app.listen(port, ()=>{
     console.log(`Express server listening on  ${port}`)
 })
 
@@ -39,40 +39,40 @@ const users = require("./routes/users");
 //   message: ''
 // }
 
-var counter = 15;
+// var counter = 15;
 
-io.on("connection", (socket) => {
-  console.log("a user connected");
+// io.on("connection", (socket) => {
+//   console.log("a user connected");
 
   
-  socket.on("message", function (data) {
+//   socket.on("message", function (data) {
     
-    if(data.message==='start'){
+//     if(data.message==='start'){
       
-      WinnerCountdown = setInterval(function () {
-      io.emit("counter", counter);
-      counter--;
+//       WinnerCountdown = setInterval(function () {
+//       io.emit("counter", counter);
+//       counter--;
       
-      if (counter === 0) {
-        io.emit("counter", "bid finished");
-        clearInterval(WinnerCountdown);
-      }
-      }, 1000);
-    }
+//       if (counter === 0) {
+//         io.emit("counter", "bid finished");
+//         clearInterval(WinnerCountdown);
+//       }
+//       }, 1000);
+//     }
 
-    counter = 15;
-    io.emit("counter", counter)
-  });
+//     counter = 15;
+//     io.emit("counter", counter)
+//   });
 
-  socket.on("message", (msg) => {
+//   socket.on("message", (msg) => {
 
-    io.emit("message",msg);
+//     io.emit("message",msg);
     
-  });
+//   });
 
-  socket.on("disconnect", () => {
-    console.log("user disconnected");
-  });
+//   socket.on("disconnect", () => {
+//     console.log("user disconnected");
+//   });
 
   // var c=0
 
@@ -99,7 +99,7 @@ io.on("connection", (socket) => {
   //       }
 
   //     })
-});
+// });
 
 app.post('/email', (req, res) =>{
   var data = req.body;
@@ -174,5 +174,9 @@ app.patch('/users/money/:id',(req,res)=>{
             res.send(data)
         )
     }) 
+  })
+
+  app.get('/',(req,res)=>{
+    res.send('working')
   })
   
