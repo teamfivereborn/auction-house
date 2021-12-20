@@ -8,10 +8,11 @@ import { MoneyChangeComponent } from './money-change/money-change.component';
 import { TheAuctionRoomComponent } from './the-auction-room/the-auction-room.component';
 import { CreateEventsComponent } from './create-events/create-events.component';
 import {AboutUsComponent } from './about-us/about-us.component';
+import { SellCoinsComponent } from './sell-coins/sell-coins.component';
 
 const routes: Routes = [
 {path:'',redirectTo:'login',pathMatch:'full'},{path:'h',component: HomeComponent},{path:'about',component: AboutUsComponent},{path:'create',component: CreateEventsComponent},{path:'room',component: TheAuctionRoomComponent},{path:'moneyChange',component: MoneyChangeComponent},{path:'homeEvents',component:HomeEventsComponent},
-  {path: 'signup', component: RegisterComponent},{path: 'login', component: LoginComponent}
+  {path: 'signup', component: RegisterComponent},{path: 'login', component: LoginComponent},{path: 'sell',component:SellCoinsComponent}
 ];
 
 @NgModule({

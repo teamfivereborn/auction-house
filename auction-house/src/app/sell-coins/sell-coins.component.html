@@ -1,0 +1,35 @@
+<div><app-user-navbar></app-user-navbar></div>
+
+
+<div class="container">
+    <h2 class="mt-5 mb-4">Keep Calm And Sell Your Coins</h2>
+    <div class="row">
+      <div class='card' class="container mt-5">
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <button (click)="pay(1000)" (click)="money(1000)" class="btn btn-primary btn-block">
+                Sell 1000 Coins
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button (click)="pay(10000)" (click)="money(10000)" class="btn btn-success btn-block">
+              Sell 10000 Coins
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button (click)="pay(100000)" (click)="money(100000)" class="btn btn-info btn-block">
+                Sell 100000 Coins
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 500px">
+        <img class="card-img-top" src="../../assets/selllllllllllllllllllllllll.png" alt="Product image" />
+         <label >Username:</label>
+        <h4 class="card-title">{{profilName}}</h4>
+        <p class="card-text">Your  coins is : 1000</p>
+        <a href="homeEvents" class="btn btn-primary">Let Join to Events</a>
+      </div>
+    </div>
+  
+  </div>

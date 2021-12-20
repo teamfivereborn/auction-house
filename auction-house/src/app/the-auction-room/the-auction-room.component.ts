@@ -54,7 +54,7 @@ if(load){
   this.userService.getProfile().subscribe((data) => { 
   var obj={user:data,message:this.newMessage}
   console.log("xx",obj);
-    if(Number(this.newMessage)>this.currentBidValue||this.newMessage==="start")
+    if(Number(this.newMessage)>this.currentBidValue||this.newMessage==="2010hia97")
     {this.biddingService.sendMessage(obj);}
     this.newMessage = "";
   })

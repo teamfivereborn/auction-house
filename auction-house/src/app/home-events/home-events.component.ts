@@ -16,6 +16,7 @@ export class HomeEventsComponent implements OnInit {
   events:any
   model : any;
   email: any
+  verif=false
   constructor(
               private Http:HttpClient,
               // private http:HttpClient
@@ -26,6 +27,7 @@ export class HomeEventsComponent implements OnInit {
   }
   
   sendEmail(): void{
+    this.verif=true;
     var url =' http://localhost:5000/emaill';
     this.Http.post(url,{
       email : this.email
