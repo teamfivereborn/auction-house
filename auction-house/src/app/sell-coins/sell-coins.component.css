@@ -1,0 +1,8 @@
+.card{
+    display: grid;
+    margin-left: 29%;
+    margin-bottom: 25px;
+}
+.row{
+    row-gap: 50px;
+}

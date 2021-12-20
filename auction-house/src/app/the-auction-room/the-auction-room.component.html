@@ -4,15 +4,22 @@
     <h1 style="color:white">The Event Screen</h1>
     
   </div>
-
+  <h3  style="color:red">Alert: First to start event you need to put the password that we sended in your email:<br> Second you can bid in this input when events start <br> Good luck!</h3>
 <div class="container mt-3">
+    <input
+    class="form-control"
+    [(ngModel)]="newMessage"
+    placeholder="Put the password and start Bid Good luck!"
+    (keyup)="$event.keyCode == 13 && sendMessage()"
+  />
+  
+  <button class="btn btn-primary" (click)="sendMessage()">Bid Now</button>
   <h1 class="card-text" *ngIf="winner">
     Congratulation the winner is:<br>" {{ winner }} "
-
     <img
       style="width: 400px"
       class="card-img-top"
-      src="../../assets/cong.png"
+      src="../../assets/555555.png"
       alt="Card image"
     />
   </h1>
@@ -20,23 +27,20 @@
   
   <tr *ngIf="loadList[0]">
       <h2>
-        <td>The Greatest Bid <br> {{ loadList[0].message | currency:"TND "}}</td>
+        <td>The Greatest Bid <br> {{ loadList[0].message | currency:"TND ":'symbol':'3.0' }}</td>
         
       </h2>
     
   </tr>
-  <input
-  class="form-control"
-  [(ngModel)]="newMessage"
-  placeholder="Bid"
-  (keyup)="$event.keyCode == 13 && sendMessage()"
-/>
-<button class="btn btn-primary" (click)="sendMessage()">Bid Now</button>
+  
+
+ 
+
   <table class="table">
     <thead>
       <tr>
         <th>The Player</th>
-        <th>coin en Dinar</th>
+        <th>Money</th>
       </tr>
     </thead>
     <tbody>

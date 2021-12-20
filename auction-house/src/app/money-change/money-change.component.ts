@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-money-change',
@@ -10,13 +11,16 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class MoneyChangeComponent implements OnInit {
-  
+  profilName:string=""
   paymentHandler:any = null;
   myBalance:any = null
 
-  constructor(private Http:HttpClient) { }
+  constructor(private Http:HttpClient,private userService: UserService,) { }
 
   ngOnInit() {
+    this.userService.getProfile().subscribe((data) => {
+      this.profilName= data.user.username      
+     })
    
     this.loadStripe();
   }
@@ -55,8 +59,8 @@ export class MoneyChangeComponent implements OnInit {
     });
   
     handler.open({
-      name: 'Demo Site',
-      description: '2 widgets',
+      name: 'Auction House Transfert',
+      description: 'Welcome To Community',
       amount: amount * 100
     });
   
