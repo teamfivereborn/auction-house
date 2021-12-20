@@ -3,14 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { UserService } from '../_services/user.service';
 
 @Component({
-  selector: 'app-money-change',
-  templateUrl: './money-change.component.html',
-  styleUrls: ['./money-change.component.css']
+  selector: 'app-sell-coins',
+  templateUrl: './sell-coins.component.html',
+  styleUrls: ['./sell-coins.component.css']
 })
+export class SellCoinsComponent implements OnInit {
 
-
-
-export class MoneyChangeComponent implements OnInit {
   profilName:string=""
   paymentHandler:any = null;
   myBalance:any = null

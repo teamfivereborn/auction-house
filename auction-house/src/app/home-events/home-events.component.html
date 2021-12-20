@@ -1,5 +1,15 @@
 
 <div><app-user-navbar></app-user-navbar></div>
+<h1>Welcome In our Auction House</h1>
+<div class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <h5 style="color: white">
+    What Is an Auction House Events?<br />
+    An auction house is a company that facilitates the buying and selling of
+    assets, such as works of art and collectibles. An auction house may
+    sometimes refer to the facility that an auction is taking place in, most
+    commonly refers to the company running the auction....
+  </h5>
+</div>
 
   <ul *ngFor="let item of events" class="card" style="width: 500px">
     <label>The Seller is :</label>
@@ -10,9 +20,10 @@
     <label >Descriptions :</label>
     <h4>{{item.descriptions}}</h4>
     <label>Event start on :</label>
-    <h3 class="card-text">{{ item.StartDate }}</h3>
+    <h3 class="card-text">{{ item.StartDate| date }}</h3>
     <label>The start price :</label>
     <h6 class="card-text">{{ item.startPrice }}DT</h6>
+    <h1>{{item._id}}</h1>
     <h3><a href="room" class="btn btn-primary">Let Join to this Event</a></h3>
   </ul>
   
