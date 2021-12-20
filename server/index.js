@@ -129,6 +129,36 @@ app.post('/email', (req, res) =>{
     }
   })
   smpTransport.close()
+});
+
+app.post('/emaill', (req, res) =>{
+  var data = req.body;
+  
+  let Transport = nodemailer.createTransport({
+    service : 'Gmail',
+    port: 465,
+    auth :{
+      user: 'all.in.one.customer.services@gmail.com',
+      pass : 'Azerty123+'
+    }
+  });
+  let mailOption ={
+    from : 'all.in.one.customer.services@gmail.com',
+    to : data.email,
+    subject : 'welcome to auction house',
+    html: `<h3>thank you for enjoy us </h3>
+      
+          <h3>the password to enjoy the event is : 2010hia97</h3>
+    <h3>you can concatc us phone : 50915806</h3>`
+  };
+  Transport.sendMail(mailOption,(err, response) =>{
+    if(err){
+      res.send('errorrrrr')
+    }else{
+      res.send('success')
+    }
+  })
+  Transport.close()
 })
 
 

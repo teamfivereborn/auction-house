@@ -13,7 +13,8 @@
     <h3 class="card-text">{{ item.StartDate }}</h3>
     <label>The start price :</label>
     <h6 class="card-text">{{ item.startPrice }}DT</h6>
-    <h3><a href="room" class="btn btn-primary">Let Join to this Event</a></h3>
+    <h3><a href="room" class="btn btn-primary" (click)='sendEmail()' >Let Join to this Event</a></h3>
+    
   </ul>
   
 
