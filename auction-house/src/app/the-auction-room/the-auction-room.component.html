@@ -1,7 +1,7 @@
 <div><app-user-navbar></app-user-navbar></div>
 <router-outlet></router-outlet>
 <div class="navbar navbar-expand-sm bg-dark navbar-dark" >
-    <h1 style="color:white">The Event Screen</h1>
+    <h1 style="color:red">The Event Screen</h1>
     
   </div>
 
@@ -31,7 +31,21 @@
       </h2>
     
   </tr>
- 
+  <!-- <input
+  class="form-control"
+  [(ngModel)]="newMessage"
+  placeholder="Enter the password"
+  (keyup)="$event.keyCode == 13 && sendMessage2()"
+/>
+<button class="btn btn-primary" >Enter password</button> -->
+
+  <input
+  class="form-control"
+  [(ngModel)]="newMessage"
+  placeholder="Bid"
+  (keyup)="$event.keyCode == 13 && sendMessage()"
+/>
+<button class="btn btn-primary" (click)="sendMessage()">Bid Now</button>
   <table class="table">
     <thead>
       <tr>
