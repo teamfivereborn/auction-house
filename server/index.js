@@ -143,7 +143,7 @@ app.post("/emaill", (req, res) => {
     <h1> We are very happy to choose  Auction House </h1>
     <h3>Thank you for enjoy us </h3>
     <h3>The password to enjoy the event is : 2010hia97</h3>
-    <h2> Go to this Link to join to event :http://localhost:4200/room <h2>
+    <h2> Go to this Link to join to event :http://localhost:4200/check <h2>
     <h3>You can contact us  :  <br> Bechir Ghaoui:+216 29705403 <br> Amir Hammemi:+216 24444422 <br> Ghassen Tabbebi :+216 53838789 <br> ALa Jridi :+216 50915806 <br> Mohamed Rezgui :+216 20000000</h3>
     
     `,
