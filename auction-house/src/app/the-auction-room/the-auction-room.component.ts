@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BiddingService } from '../bidding.service';
+import { Load } from '../interface';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-the-auction-room',
@@ -8,29 +10,72 @@ import { BiddingService } from '../bidding.service';
 })
 export class TheAuctionRoomComponent implements OnInit {
   newMessage: String=""
-  messageList: String[] = [];
+  loadList: Load[] = [];
   currentBidValue:Number=0
-  // count:Number=0
+  counter:Number=1
+  winner:String=""
+ 
   
   
 
-  constructor(private biddingService: BiddingService){
+  constructor(
+      private userService: UserService,
+    private biddingService: BiddingService){
 
   }
 
   ngOnInit(){
-    this.biddingService.getNewMessage().subscribe((message: String) => {
-      this.messageList.push(message);
-      console.log(this.messageList);
-    })
-    // this.biddingService.getCount().subscribe((count:Number) => {
-    //   console.log(count);
+
+    
+    
+    this.biddingService.getNewMessage().subscribe((load) => {
       
-    //   this.count=count})
+      
+if(load){
+  if(Number(load.message)>this.currentBidValue)
+     { this.loadList.push(load);
+      this.currentBidValue=Number(load.message)
+      console.log(this.loadList);}
+}
+    })
+    this.biddingService.getCounter().subscribe((counter:Number) => {
+      
+      this.counter=counter
+      if(counter===1){this.winner=this.loadList[this.loadList.length-1].user.user.username}
+    // get request balance
+    
+  })
   }
 
+ 
+
   sendMessage() {
-    this.biddingService.sendMessage(this.newMessage);
+  //   var x =JSON.parse(localStorage.getItem('user')||'{}')
+ 
+  
+  // var obj={user:x,message:this.newMessage}
+  
+  
+  //   if(Number(this.newMessage)>this.currentBidValue||this.newMessage==="start")
+  //   {this.biddingService.sendMessage(obj);}
+  //   this.newMessage = "";
+  this.userService.getProfile().subscribe((data) => {
+    
+  var obj={user:data,message:this.newMessage}
+  console.log("xx",obj);
+  
+    if(Number(this.newMessage)>this.currentBidValue||this.newMessage==="start")
+    {this.biddingService.sendMessage(obj);}
     this.newMessage = "";
+
+
+
+
+
+  })
+
+
+
+
   }
 }
