@@ -4,12 +4,12 @@
     <h1 style="color:white">The Event Screen</h1>
     
   </div>
-  <h3  style="color:red">Alert: First to start event you need to put the password that we sended in your email:<br> Second you can bid in this input when events start <br> Good luck!</h3>
+  
 <div class="container mt-3">
     <input
     class="form-control"
     [(ngModel)]="newMessage"
-    placeholder="Put the password and start Bid Good luck!"
+    placeholder="Put start To Start Bid Good luck!"
     (keyup)="$event.keyCode == 13 && sendMessage()"
   />
   
