@@ -7,3 +7,12 @@
     top: -1%;
     font-size: 18px;      
 }
+.profilName2{
+    text-align: right;
+    color: rgb(38, 41, 41);
+    position: fixed;
+    float: right;
+    right: 10px;
+    top: 2%;
+    font-size: 18px;      
+}

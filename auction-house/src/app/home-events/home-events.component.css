@@ -1,10 +1,5 @@
 .card{
     display: grid;
-    margin-left: 30%;
-    margin-bottom: 25px;
-}
-.Acard{
-    display: grid;
-    margin-left: 25%;
-    margin-bottom: 25px;
+    margin-left: 450px;
+    margin-bottom: 20px;
 }

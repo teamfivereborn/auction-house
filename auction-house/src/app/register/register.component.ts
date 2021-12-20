@@ -39,15 +39,11 @@ export class RegisterComponent implements OnInit {
   }
   
   forgot(): void{
-  
     
     var url =' http://localhost:5000/email';
     this.http.post(url,{
       email : this.model.email
-      
-    }) 
-    
-    
+    })
     .subscribe( () =>{
       console.log(('hiiiiiiii'));
       

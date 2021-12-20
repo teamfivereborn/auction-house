@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-money-change',
@@ -9,20 +8,18 @@ import { UserService } from '../_services/user.service';
 })
 
 
-
 export class MoneyChangeComponent implements OnInit {
-  profilName:string=""
+  
   paymentHandler:any = null;
   myBalance:any = null
-
-  constructor(private Http:HttpClient,private userService: UserService,) { }
+id:any=''
+  constructor(private Http:HttpClient) { }
 
   ngOnInit() {
-    this.userService.getProfile().subscribe((data) => {
-      this.profilName= data.user.username      
-     })
    
     this.loadStripe();
+    this.myBalance=localStorage.getItem('user')
+    this.id= JSON.parse(this.myBalance).id
   }
   loadStripe() {
       
@@ -36,14 +33,24 @@ export class MoneyChangeComponent implements OnInit {
 }
 
   
- money(e:any){
-  var money={balance:e}
-  console.log("ùùùùùùùùùùùùùùùùùùùùùùù",money)
-  this.Http.post<any>('http://localhost:5000/money',money).subscribe((myBalance)=>{
-    console.log(myBalance);})
+ money(e:any,id:any=this.id){
+  // var money={balance:e}
+  // console.log("ùùùùùùùùùùùùùùùùùùùùùùù",money)
+  // this.Http.post<any>('http://localhost:5000/money',money).subscribe((myBalance)=>{
+  //   console.log(myBalance);})
+  const body = { balance:e};
+    
+    
+  this.Http.patch<any>(`http://localhost:5000/users/money/${id}`, body)
+      .subscribe({
+          next: data => { 
+          },
+          error: error => {
+              console.error('There was an error!', error);
+          }
+      });
 
  }
-
 
 
   pay(amount:any) {    
@@ -59,13 +66,10 @@ export class MoneyChangeComponent implements OnInit {
     });
   
     handler.open({
-      name: 'Auction House Transfert',
-      description: 'Welcome To Community',
+      name: 'Demo Site',
+      description: '2 widgets',
       amount: amount * 100
     });
   
-}
+}}
   
-  
-
-}

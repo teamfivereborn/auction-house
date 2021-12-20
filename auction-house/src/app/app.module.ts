@@ -20,9 +20,7 @@ import { CreateEventsComponent } from './create-events/create-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BiddingService } from './bidding.service';
 import { RegisterComponent } from './register/register.component';
-import {CountdownModule} from 'ngx-countdown';
-import { SellCoinsComponent } from './sell-coins/sell-coins.component';
-import { CheckPassComponent } from './check-pass/check-pass.component'
+import {CountdownModule} from 'ngx-countdown'
 
 @NgModule({
   declarations: [
@@ -38,8 +36,6 @@ import { CheckPassComponent } from './check-pass/check-pass.component'
     CreateEventsComponent,
     AboutUsComponent,
     RegisterComponent,
-    SellCoinsComponent,
-    CheckPassComponent,
 
   
   ],

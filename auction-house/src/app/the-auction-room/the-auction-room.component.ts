@@ -14,7 +14,6 @@ export class TheAuctionRoomComponent implements OnInit {
   currentBidValue:Number=0
   counter:Number=1
   winner:String=""
-  toggel :any = true
  
   
   
@@ -43,7 +42,7 @@ if(load){
       
       this.counter=counter
       if(counter===1){this.winner=this.loadList[this.loadList.length-1].user.user.username}
-    
+    // get request balance
     
   })
   }
@@ -51,23 +50,32 @@ if(load){
  
 
   sendMessage() {
-  this.userService.getProfile().subscribe((data) => { 
+  //   var x =JSON.parse(localStorage.getItem('user')||'{}')
+ 
+  
+  // var obj={user:x,message:this.newMessage}
+  
+  
+  //   if(Number(this.newMessage)>this.currentBidValue||this.newMessage==="start")
+  //   {this.biddingService.sendMessage(obj);}
+  //   this.newMessage = "";
+  this.userService.getProfile().subscribe((data) => {
+    
   var obj={user:data,message:this.newMessage}
   console.log("xx",obj);
+  
     if(Number(this.newMessage)>this.currentBidValue||this.newMessage==="start")
     {this.biddingService.sendMessage(obj);}
     this.newMessage = "";
+
+
+
+
+
   })
+
+
+
+
   }
-
-
-  // sendMessage2() {
-  //   this.userService.getProfile().subscribe((data) => { 
-  //   var obj={user:data,message:this.newMessage}
-  //   console.log("xx",obj);
-  //     if(Number(this.newMessage)>this.currentBidValue||this.newMessage==="2010hia97")
-  //     {this.biddingService.sendMessage(obj);}
-  //     this.newMessage = "";
-  //   })
-  // }
 }

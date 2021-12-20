@@ -1,47 +1,19 @@
+
 <div><app-user-navbar></app-user-navbar></div>
-<h1>Welcome In our Auction House</h1>
-<div class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <h5 style="color: white">
-    What Is an Auction House Events?<br />
-    An auction house is a company that facilitates the buying and selling of
-    assets, such as works of art and collectibles. An auction house may
-    sometimes refer to the facility that an auction is taking place in, most
-    commonly refers to the company running the auction....
-  </h5>
-</div>
 
-
-<div>
-  <h3 style="text-align:center"> This Video Introduce How To Bid at An Auction </h3>
-  <video  class="Acard" width="800" height="300" controls>
-    <source src="../../assets/How to Bid at an Auction.mp4" type="video/mp4">
-    <source src="movie.ogg" type="video/ogg">
-    Your browser does not support the video tag.
-  </video>
-
-</div>
-
-<h3 style="text-align:center"> This are all they events available for now </h3>
-
-<ul *ngFor="let item of events" class="card" style="width: 500px">
-  <label>The Seller is :</label>
-  <h2 class="card-title">{{ item.ownerid }}</h2>
-  <label>The product is : </label>
-  <h3 class="card-title">{{ item.title }}</h3>
-  <img class="card-img-top" src="{{ item.img }}" alt="Product image" />
-  <label>Descriptions :</label>
-  <h4>{{ item.descriptions }}</h4>
-  <label>Event start on :</label>
-  <h3 class="card-text">{{ item.StartDate | date }}</h3>
-  <label>The start price :</label>
-  <h6 class="card-text">{{ item.startPrice }}DT</h6>
-  <label>
-    After you click we will check first your balance if you have Adequate
-    balance we will send you email to join event</label
-  >
-  <h3>
-    <a class="btn btn-primary" (click)="sendEmail()">Let Join to this Event</a>
-  </h3>
-  <div *ngIf="verif==true" class="spinner-border text-primary"></div>
-</ul>
+  <ul *ngFor="let item of events" class="card" style="width: 500px">
+    <label>The Seller is :</label>
+    <h2 class="card-title">{{ item.ownerid }}</h2>
+    <label>The product is : </label>
+    <h3 class="card-title">{{ item.title }}</h3>
+    <img class="card-img-top" src="{{item.img}}" alt="Product image" />
+    <label >Descriptions :</label>
+    <h4>{{item.descriptions}}</h4>
+    <label>Event start on :</label>
+    <h3 class="card-text">{{ item.StartDate }}</h3>
+    <label>The start price :</label>
+    <h6 class="card-text">{{ item.startPrice }}DT</h6>
+    <h3><a href="room" class="btn btn-primary">Let Join to this Event</a></h3>
+  </ul>
+  
 

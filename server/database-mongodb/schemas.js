@@ -49,8 +49,16 @@ const participantSchema = new mongoose.Schema({
 });
 const participant = mongoose.model('participant', participantSchema);
 
+const currentSchema = new mongoose.Schema({
+  userId: String,
+  val: String,
+  
+});
+const current = mongoose.model('current', currentSchema);
+
 module.exports ={
   user,
   event,
-  participant
+  participant,
+  current
 } 
